@@ -15,7 +15,8 @@
                 </MenuItem>
 
                 <MenuItem Header="Consultas">
-                    <!-- <MenuItem x:Name="cPrestamoMenuItem" Header="Consulta de prestamos" -->
+                    <MenuItem x:Name="cPrestamoMenuItem" Header="Consulta prestamos." Click="cPrestamoMenuItem_Click"/>
+                    <MenuItem x:Name="cPersonaMenuItem" Header="Consulta personas." Click="cPersonaMenuItem_Click"/>
                 </MenuItem>
 
                 <MenuItem Header="Ayuda">

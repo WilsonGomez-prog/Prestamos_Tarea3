@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Prestamos_Tarea3.UI.Registros;
+using Prestamos_Tarea3.UI.Consultas;
 
 namespace Prestamos_Tarea3
 {
@@ -28,14 +29,26 @@ namespace Prestamos_Tarea3
 
         public void rPersonaMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            rPersona persona = new rPersona();
-            persona.Show();
+            rPersona registroPersona = new rPersona();
+            registroPersona.Show();
         }
 
         public void rPrestamoMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            rPrestamo prestamo = new rPrestamo();
-            prestamo.Show();
+            rPrestamo registroPrestamo = new rPrestamo();
+            registroPrestamo.Show();
+        }
+
+        public void cPersonaMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPersona consultaPersona = new cPersona();
+            consultaPersona.Show();
+        }
+
+        public void cPrestamoMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            cPrestamo consultaPrestamo = new cPrestamo();
+            consultaPrestamo.Show();
         } 
     }
 }
