@@ -27,7 +27,17 @@ namespace Prestamos_Tarea3.UI.Registros
             if(NombreTextBox.Text.Length == 0)
             {
                 valido = false;
-                MessageBox.Show("Error, persona no valida.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Error, persona no válida. El nombre está vacio.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if(Convert.ToDouble(BalanceTextBox.Text) > 0 || Convert.ToDouble(BalanceTextBox.Text) < 0 )
+            {
+                valido = false;
+                MessageBox.Show("Error, persona no válida. El balance va vacío", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if(Convert.ToInt32(PersonaIdTextBox.Text) > 0 || Convert.ToInt32(PersonaIdTextBox.Text) < 0 )
+            {
+                valido = false;
+                MessageBox.Show("Error, persona no válida. El ID de la persona va vacío", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             return valido;
         }
@@ -78,7 +88,7 @@ namespace Prestamos_Tarea3.UI.Registros
             }
             else
             {
-                MessageBox.Show("No se pudo eliminar la persona.", "¡Fallo!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No se pudo eliminar la persona. El ID ingrasado no coincide con ninguna persona.", "¡Fallo!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

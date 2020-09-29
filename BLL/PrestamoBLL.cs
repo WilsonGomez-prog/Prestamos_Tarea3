@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Prestamos_Tarea3.Entidades;
 using Prestamos_Tarea3.DAL;
+using Prestamos_Tarea3.Entidades;
+
 
 namespace Prestamos_Tarea3
 {
@@ -155,6 +158,31 @@ namespace Prestamos_Tarea3
             }
 
             return encontrado;
+        }
+
+        /// <summary>
+        /// Permite extraer una lista con las entidades(prestamos) que posee la base de datos.
+        /// </summary>
+        /// <param name = "criterio"> Es el criterio por el cual va a ser ordenada o extraida la lista.</param>
+        public static List<Prestamo> GetList(Expression<Func<Prestamo, bool>> criterio)
+        {
+            List<Prestamo> lista = new List<Prestamo>();
+            Contexto contexto = new Contexto();
+            
+            try
+            {
+                lista = contexto.prestamo.Where(criterio).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
         }
     }
 }

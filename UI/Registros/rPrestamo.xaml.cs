@@ -27,10 +27,25 @@ namespace Prestamos_Tarea3.UI.Registros
         {
             bool validado = true;
             
-            if(PersonaIdTextBox.Text.Length == 0 || MontoTextBox.Text.Length == 0)
+            if(PersonaIdTextBox.Text.Length == 0 || Convert.ToInt32(PersonaIdTextBox.Text) == 0)
             {
                 validado = false;
-                MessageBox.Show("El prestamo no puede ser validado.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("El préstamo no puede ser validado. El ID de la persona es 0 o esta vacío.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if(MontoTextBox.Text.Length == 0)
+            {
+                validado = false;
+                MessageBox.Show("El préstamo no puede ser validado. El monto del préstamo es 0 o esta vacío.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if(Convert.ToInt32(PrestamoIdTextBox.Text) > 0 || Convert.ToInt32(PrestamoIdTextBox.Text) < 0 )
+            {
+                validado = false;
+                MessageBox.Show("Error, persona no válida. El ID del prestamo va vacío.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if(ConceptoTextBox.Text.Length == 0)
+            {   
+                validado = false;
+                MessageBox.Show("El préstamo no puede ser validado. El concepto del préstamo esta vacío.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             return validado;

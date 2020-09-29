@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prestamos_Tarea3"
         mc:Ignorable="d"
-        Title="Registro Personas" Height="400" Width="475">
+        Title="Registro Personas" Height="275" Width="475">
     <Grid>
         <StackPanel>
             <!--PersonaId-->
@@ -14,6 +14,7 @@
             <Button x:Name="BuscarButton" Height="40" Width="85" Margin="370, -25, 0, 0" Click="BuscarButton_Click">
                 <DockPanel>
                     <TextBlock> Buscar </TextBlock>
+                    <Image Source = "/Imagenes/save_icon.png"/>
                 </DockPanel>
             </Button>
 
@@ -23,24 +24,27 @@
 
             <!--Balance-->
             <Label Content="Balance:" FontSize="15" Height="30" Width="70" Margin="-340, 15, 0, 0"/>
-            <TextBox x:Name="BalanceTextBox" Text="{Binding Balance}" Height="25" Width="160" Margin="100, -25, 0, 0"/>
+            <TextBox x:Name="BalanceTextBox" Text="{Binding Balance}" Height="25" Width="160" Margin="100, -25, 0, 0" IsReadOnly="True"/>
 
              <!-- Botones -->
             <Button x:Name="NuevoButton" Height="40" Width="85" Margin="-300, 15, 0, 0" Click="NuevoButton_Click">
                 <DockPanel>
                     <TextBlock> Nuevo </TextBlock>
+                    <Image Source = "/Imagenes/new_icon.png"/>
                 </DockPanel>
             </Button>
 
             <Button x:Name="GuardarButton" Height="40" Width="85" Margin="-50, -40, 0, 0" Click="GuardarButton_Click">
                 <DockPanel>
                     <TextBlock> Guardar </TextBlock>
+                    <Image Source = "/Imagenes/save_icon.png"/>
                 </DockPanel>
             </Button>
 
             <Button x:Name="EliminarButton" Height="40" Width="85" Margin="200, -40, 0, 0" Click="EliminarButton_Click" >
                 <DockPanel>
                     <TextBlock> Eliminar </TextBlock>
+                    <Image Source = "/Imagenes/delete_icon.png"/>
                 </DockPanel>
             </Button>
         </StackPanel>

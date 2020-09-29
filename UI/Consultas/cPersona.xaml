@@ -1,0 +1,58 @@
+<Window x:Class="Prestamos_Tarea3.UI.Consultas.cPersona"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prestamos_Tarea3"
+        mc:Ignorable="d"
+        Title="Consulta Personas" Height="400" Width="475">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10, 5, 10, 0">
+
+            <StackPanel Orientation="Vertical" Height="58">
+                
+                <StackPanel>
+                    <Label Content="Desde:"/>
+                    <DatePicker x:Name="DesdeDataPicker" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="5,0">
+                    <Label Content="Hasta:"/>
+                    <DatePicker x:Name="HastaDataPicker" />
+                </StackPanel>
+
+                <StackPanel Margin="5,0">
+                    <Label Content="Filtro:"/>
+                    <ComboBox x:Name="FiltroComboBox" Width="100">
+                        <ComboBoxItem Content="PersonaID"/>
+                        <ComboBoxItem Content="Nombres"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="5,0">
+                    <Label Content="Criterio:"/>
+                    <TextBox x:Name="CriterioTextBox" Width="100"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <Button x:Name="BuscarButton" Height="34" Width="93" Click="ConsultarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Buscar</TextBlock>
+                            <Image Source = "/Imagenes/search_icon.png"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Left">
+                    <DataGrid x:Name="DatosDataGrid" Height="350" Width="527">
+                        <ColumnDefinition>
+                        
+                        </ColumnDefinition>
+                    </DataGrid>
+                </StackPanel>
+
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>
