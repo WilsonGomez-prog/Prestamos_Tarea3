@@ -13,7 +13,7 @@
             <TextBox x:Name="PersonaIdTextBox" Text="{Binding PersonaId}" Height="25" Width="160" Margin="100, -25, 0, 0"/>
             <Button x:Name="BuscarButton" Height="40" Width="85" Margin="370, -25, 0, 0" Click="BuscarButton_Click">
                 <DockPanel>
-                    <TextBlock> Buscar </TextBlock>
+                    <TextBlock Margin="-5, 10, 0, 0"> Buscar </TextBlock>
                     <Image Source = "/Imagenes/save_icon.png"/>
                 </DockPanel>
             </Button>
@@ -29,21 +29,21 @@
              <!-- Botones -->
             <Button x:Name="NuevoButton" Height="40" Width="85" Margin="-300, 15, 0, 0" Click="NuevoButton_Click">
                 <DockPanel>
-                    <TextBlock> Nuevo </TextBlock>
+                    <TextBlock Margin="-5, 10, 0, 0"> Nuevo </TextBlock>
                     <Image Source = "/Imagenes/new_icon.png"/>
                 </DockPanel>
             </Button>
 
             <Button x:Name="GuardarButton" Height="40" Width="85" Margin="-50, -40, 0, 0" Click="GuardarButton_Click">
                 <DockPanel>
-                    <TextBlock> Guardar </TextBlock>
+                    <TextBlock Margin="-5, 10, 0, 0"> Guardar </TextBlock>
                     <Image Source = "/Imagenes/save_icon.png"/>
                 </DockPanel>
             </Button>
 
             <Button x:Name="EliminarButton" Height="40" Width="85" Margin="200, -40, 0, 0" Click="EliminarButton_Click" >
                 <DockPanel>
-                    <TextBlock> Eliminar </TextBlock>
+                    <TextBlock Margin="-5, 10, 0, 0"> Eliminar </TextBlock>
                     <Image Source = "/Imagenes/delete_icon.png"/>
                 </DockPanel>
             </Button>

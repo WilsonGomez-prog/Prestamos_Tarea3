@@ -11,10 +11,10 @@
             <!-- PrestamoId -->
                 <Label Content="PrestamoID: " Height="30" Width="80" Margin="-340, 20, 0, 0"/>
                 <TextBox x:Name="PrestamoIdTextBox" Width="40" Height="25" Text="{Binding PresatmoId}" Margin=" -240, -25, 0, 0"/>
-                <Button x:Name="BuscarButton" Width="60" Height="40" Margin="140, -45, 0, 0" Click="BuscarButton_Click">
+                <Button x:Name="BuscarButton" Height="40" Width="85" Margin="140, -45, 0, 0" Click="BuscarButton_Click">
                     <DockPanel>
-                        <TextBlock> Buscar </TextBlock>
-                        <Image Source = "/Imagenes/search_icon.png"/>
+                        <TextBlock Margin="3, 10, 0, 0"> Buscar </TextBlock>
+                        <Image Source = "/Imagenes/search_icon.png" Margin="10, 0, 0, 0"/>
                     </DockPanel>
                 </Button>
 
@@ -40,24 +40,24 @@
 
             <!-- BOTONES -->
             <StackPanel Orientation="Horizontal" Margin="0,15">
-                <Button x:Name="NuevoButton" Margin="10,5" Width="60" Height="40" Click="NuevoButton_Click">
+                <Button x:Name="NuevoButton" Margin="10,5" Height="40" Width="85" Click="NuevoButton_Click">
                     <DockPanel>
-                        <TextBlock> Nuevo </TextBlock>
-                        <Image Source = "/Imagenes/new_icon.png"/>
+                        <TextBlock Margin="3, 10, 0, 0"> Nuevo </TextBlock>
+                        <Image Source = "/Imagenes/new_icon.png" Margin="10, 0, 0, 0"/>
                     </DockPanel>
                 </Button>
 
-                <Button x:Name="GuardarButton" Margin="20,5" Width="60" Height="40" Click="GuardarButton_Click">
+                <Button x:Name="GuardarButton" Margin="20,5" Height="40" Width="85" Click="GuardarButton_Click">
                     <DockPanel>
-                        <TextBlock> Guardar </TextBlock>
-                        <Image Source = "/Imagenes/save_icon.png"/>
+                        <TextBlock Margin="3, 5, 0, 0"> Guardar </TextBlock>
+                        <Image Source = "/Imagenes/save_icon.png" Margin="10, 0, 0, 0"/>
                     </DockPanel>
                 </Button>
 
-                <Button x:Name="EliminarButton" Margin="10,5" Width="60" Height="40" Click="EliminarButton_Click">
+                <Button x:Name="EliminarButton" Margin="10,5" Height="40" Width="85" Click="EliminarButton_Click">
                     <DockPanel>
-                        <TextBlock> Eliminar </TextBlock>
-                        <Image Source = "/Imagenes/delete_icon.png"/>
+                        <TextBlock Margin="4, 5, 0, 0"> Eliminar </TextBlock>
+                        <Image Source = "/Imagenes/delete_icon.png" Margin="10, 0, 0, 0" />
                     </DockPanel>
                 </Button>
             </StackPanel>
