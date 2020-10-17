@@ -19,13 +19,17 @@ namespace Prestamos_Tarea3.UI.Consultas
             {
                 switch(FiltroComboBox.SelectedIndex)
                 {
-                    case 1:
+                    case 0:
                         listado = PrestamoBLL.GetList(e => e.PrestamoId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
-                    case 2:
+                    case 1:
                         listado = PrestamoBLL.GetList(e => e.PersonaId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                 }
+            }
+            else
+            {
+                listado = PrestamoBLL.GetList(e => true);
             }
 
             listado = PrestamoBLL.GetList(c => c.FechaPrestamo.Date >= DesdeDataPicker.SelectedDate && c.FechaPrestamo <= HastaDataPicker.SelectedDate);

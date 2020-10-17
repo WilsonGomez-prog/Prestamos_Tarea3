@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prestamos_Tarea3"
         mc:Ignorable="d"
-        Title="Prestamos." Height="450" Width="800">
+        Title="Prestamos." Height="450" Width="800"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <Menu>
                 <MenuItem Header="Registro">
                     <MenuItem x:Name="rPrestamoMenuItem" Header="Registro prestamos." Click="rPrestamoMenuItem_Click"/>
                     <MenuItem x:Name="rPersonaMenuItem" Header="Registro personas." Click="rPersonaMenuItem_Click"/>
+                    <MenuItem x:Name="rMoraMenuItem" Header="Registro Moras." Click="rMoraMenuItem_Click"/>
                 </MenuItem>
 
                 <MenuItem Header="Consultas">

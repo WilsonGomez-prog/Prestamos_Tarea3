@@ -23,7 +23,7 @@ namespace Prestamos_Tarea3.UI.Consultas
                         listado = PersonaBLL.GetList(e => e.PersonaId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                     case 2:
-                        listado = PersonaBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text, StringComparison.OrdinalIgnoreCase));
+                        listado = PersonaBLL.GetList(e => e.Nombres.Contains(CriterioTextBox.Text));
                         break;
                 }
             }

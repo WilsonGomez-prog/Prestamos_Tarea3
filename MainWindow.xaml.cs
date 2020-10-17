@@ -31,12 +31,16 @@ namespace Prestamos_Tarea3
         {
             rPersona registroPersona = new rPersona();
             registroPersona.Show();
-        }
-
-        public void rPrestamoMenuItem_Click(object sender, RoutedEventArgs e)
+        }public void rPrestamoMenuItem_Click(object sender, RoutedEventArgs e)
         {
             rPrestamo registroPrestamo = new rPrestamo();
             registroPrestamo.Show();
+        }
+
+        public void rMoraMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rMoras registroMora = new rMoras();
+            registroMora.Show();
         }
 
         public void cPersonaMenuItem_Click(object sender, RoutedEventArgs e)

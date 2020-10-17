@@ -5,46 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prestamos_Tarea3"
         mc:Ignorable="d"
-        Title="Registro Personas" Height="275" Width="475">
+        Title="Registro Personas" Height="275" Width="475" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <!--PersonaId-->
             <Label Content="ID:" FontSize="15" Height="30" Width="30" Margin="-375, 20, 0, 0"/>
-            <TextBox x:Name="PersonaIdTextBox" Text="{Binding PersonaId}" Height="25" Width="160" Margin="100, -25, 0, 0"/>
-            <Button x:Name="BuscarButton" Height="40" Width="85" Margin="370, -25, 0, 0" Click="BuscarButton_Click">
+            <TextBox x:Name="PersonaIdTextBox" Text="{Binding PersonaId}" Height="25" Width="160" Margin="-50, -25, 0, 0"/>
+            <Button x:Name="BuscarButton" Height="30" Width="75" Margin="210, -25, 0, 0" Click="BuscarButton_Click">
                 <DockPanel>
-                    <TextBlock Margin="-5, 10, 0, 0"> Buscar </TextBlock>
-                    <Image Source = "/Imagenes/save_icon.png"/>
+                    <TextBlock Margin="-5, 0, 0, 0"> Buscar </TextBlock>
+                    <Image Source = "/Imagenes/search_icon.png" Height="20" Margin="5,0,0,0"/>
                 </DockPanel>
             </Button>
 
             <!--Nombres-->
             <Label Content="Nombre:" FontSize="15" Height="30" Width="70" Margin="-340, 10, 0, 0"/>
-            <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" Height="25" Width="160" Margin="100, -25, 0, 0"/>
+            <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" Height="25" Width="160" Margin="-50, -25, 0, 0"/>
 
             <!--Balance-->
             <Label Content="Balance:" FontSize="15" Height="30" Width="70" Margin="-340, 15, 0, 0"/>
-            <TextBox x:Name="BalanceTextBox" Text="{Binding Balance}" Height="25" Width="160" Margin="100, -25, 0, 0" IsReadOnly="True"/>
+            <TextBox x:Name="BalanceTextBox" Text="{Binding Balance}" Height="25" Width="160" Margin="-50, -25, 0, 0" IsReadOnly="True"/>
 
              <!-- Botones -->
             <Button x:Name="NuevoButton" Height="40" Width="85" Margin="-300, 15, 0, 0" Click="NuevoButton_Click">
                 <DockPanel>
-                    <TextBlock Margin="-5, 10, 0, 0"> Nuevo </TextBlock>
-                    <Image Source = "/Imagenes/new_icon.png"/>
+                    <TextBlock Margin="-5, 3, 0, 0"> Nuevo </TextBlock>
+                    <Image Source = "/Imagenes/new_icon.png" Height="25" Margin="5,0,0,0"/>
                 </DockPanel>
             </Button>
 
             <Button x:Name="GuardarButton" Height="40" Width="85" Margin="-50, -40, 0, 0" Click="GuardarButton_Click">
                 <DockPanel>
-                    <TextBlock Margin="-5, 10, 0, 0"> Guardar </TextBlock>
-                    <Image Source = "/Imagenes/save_icon.png"/>
+                    <TextBlock Margin="-5, 3, 0, 0"> Guardar </TextBlock>
+                    <Image Source = "/Imagenes/save_icon.png" Height="25" Margin="5,0,0,0"/>
                 </DockPanel>
             </Button>
 
             <Button x:Name="EliminarButton" Height="40" Width="85" Margin="200, -40, 0, 0" Click="EliminarButton_Click" >
                 <DockPanel>
-                    <TextBlock Margin="-5, 10, 0, 0"> Eliminar </TextBlock>
-                    <Image Source = "/Imagenes/delete_icon.png"/>
+                    <TextBlock Margin="-5, 3, 0, 0"> Eliminar </TextBlock>
+                    <Image Source = "/Imagenes/delete_icon.png" Height="25" Margin="5,0,0,0"/>
                 </DockPanel>
             </Button>
         </StackPanel>

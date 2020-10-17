@@ -12,5 +12,15 @@ namespace Prestamos_Tarea3.Entidades
         public string Concepto { get; set; }
         public double Monto { get; set; }
         public double Balance { get; set; }
+
+        public Prestamo()
+        {
+            PrestamoId = 0;
+            FechaPrestamo = DateTime.Now;
+            PersonaId = 0;
+            Concepto = "";
+            Monto = 0.0;
+            Balance = 0.0;
+        }
     }
 }

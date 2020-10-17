@@ -38,7 +38,7 @@ namespace Prestamos_Tarea3
 
             try
             {
-                prestamo = contexto.prestamo.Find(prestamoId);
+                prestamo = contexto.Prestamo.Find(prestamoId);
             }
             catch (Exception)
             {
@@ -63,11 +63,11 @@ namespace Prestamos_Tarea3
 
             try
             {
-                var prestamo = contexto.prestamo.Find(prestamoId);
+                var prestamo = contexto.Prestamo.Find(prestamoId);
 
                 if (prestamo != null)
                 {
-                    contexto.prestamo.Remove(prestamo);
+                    contexto.Prestamo.Remove(prestamo);
                     eliminado = contexto.SaveChanges() > 0;
                 }
             }
@@ -95,6 +95,7 @@ namespace Prestamos_Tarea3
             try
             {
                 contexto.Add(prestamo);
+                var cliente = contexto.Persona.Find(prestamo.PersonaId).Balance += prestamo.Monto;
                 insertado = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -121,6 +122,7 @@ namespace Prestamos_Tarea3
             try
             {
                 contexto.Entry(prestamo).State = EntityState.Modified;
+                var cliente = contexto.Persona.Find(prestamo.PersonaId).Balance += prestamo.Monto;
                 modificado = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -146,7 +148,7 @@ namespace Prestamos_Tarea3
 
             try
             {
-                encontrado = contexto.prestamo.Any(e => e.PrestamoId == prestamoId);
+                encontrado = contexto.Prestamo.Any(e => e.PrestamoId == prestamoId);
             }
             catch (Exception)
             {
@@ -161,7 +163,7 @@ namespace Prestamos_Tarea3
         }
 
         /// <summary>
-        /// Permite extraer una lista con las entidades(prestamos) que posee la base de datos.
+        /// Permite extraer una lista con las entidades(prestamos) que posee la base de datos basados en un criterio.
         /// </summary>
         /// <param name = "criterio"> Es el criterio por el cual va a ser ordenada o extraida la lista.</param>
         public static List<Prestamo> GetList(Expression<Func<Prestamo, bool>> criterio)
@@ -171,7 +173,31 @@ namespace Prestamos_Tarea3
             
             try
             {
-                lista = contexto.prestamo.Where(criterio).ToList();
+                lista = contexto.Prestamo.Where(criterio).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return lista;
+        }
+
+        /// <summary>
+        /// Permite extraer una lista con las entidades(prestamos) que posee la base de datos.
+        /// </summary>
+        public static List<Prestamo> GetList()
+        {
+            List<Prestamo> lista = new List<Prestamo>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                lista = contexto.Prestamo.ToList();
             }
             catch (Exception)
             {

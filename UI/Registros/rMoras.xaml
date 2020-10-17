@@ -1,0 +1,101 @@
+﻿<Window x:Class="Prestamos_Tarea3.UI.Registros.rMoras"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prestamos_Tarea3.UI.Registros"
+        xmlns:m="clr-namespace:Prestamos_Tarea3.Validacion"
+        mc:Ignorable="d"
+        Title="Registro de Moras" Height="475" Width="520" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <!--MoraId-->
+            <Label Content="ID:" FontSize="15" Height="30" Width="30" Margin="20,0,0,0" HorizontalAlignment="Left"/>
+            <TextBox x:Name="MoraIdTextBox" Text="{Binding MoraId}" Height="25" Width="50" Margin="80,-25,0,0" HorizontalAlignment="Left"/>
+            <Button x:Name="BuscarButton" Height="25" Width="70" Margin="170, -25, 0, 0" HorizontalAlignment="Left" Click="BuscarButton_Click">
+                <DockPanel>
+                    <TextBlock Margin="-5, 0, 0, 0"> Buscar</TextBlock>
+                    <Image Source = "/Imagenes/search_icon.png" Height="20" Margin="5,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <!--Fecha-->
+            <Label Content="Fecha:" FontSize="15" Height="30" Width="70" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+            <DatePicker x:Name="FechaDatePicker" Height="25" Width="160" Margin="80,-25,0,0" HorizontalAlignment="Left">
+                <DatePicker.SelectedDate>
+                    <Binding Path="Fecha" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <m:ValidacionFecha x:Name="validacionfecha" ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </DatePicker.SelectedDate>
+            </DatePicker>
+
+            <!--Prestamo-->
+            <Label Content="Prestamo:" FontSize="15" Height="30" Width="87" Margin="20,15,0,0" HorizontalAlignment="Left"/>
+            <ComboBox x:Name="PrestamoComboBox" Text="{Binding DetalleMora.PrestamoId}" Height="25" Width="160" Margin="25,0,0,0" HorizontalAlignment="Left"/>
+
+            <!--Valor-->
+            <Label Content="Valor:" FontSize="15" Height="30" Width="50" Margin="240,-80,0,0" HorizontalAlignment="Left"/>
+            <TextBox x:Name="ValorTextBox" Height="25" Width="90" Margin="250,-25,0,0" HorizontalAlignment="Left">
+                <Binding Path="DetalleMora.Valor" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <m:ValidacionMonto x:Name="validacionmonto" ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
+
+            <StackPanel Orientation="Horizontal" Width="380" Height="270" Margin="20,20,0,0" HorizontalAlignment="Left">
+                <DataGrid x:Name="DetallesDataGrid" ItemsSource="{Binding DetalleMora}" AutoGenerateColumns="False" Height="220" Width="380" IsReadOnly="True" VerticalAlignment="Top">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50" />
+                        <DataGridTextColumn Header="Cliente" Binding="{Binding PrestamoId}" Width="220"/>
+                        <DataGridTextColumn Header="Mora" Binding="{Binding Valor}" Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                
+                <!--Total-->
+                <Label Content="Total:" FontSize="15" Height="30" Width="50" Margin="-150,220,0,0" HorizontalAlignment="Left" />
+                <TextBox x:Name="MontoTextBox" Text="{Binding Total}" Height="25" Width="90" Margin="-90,220,0,0" HorizontalAlignment="Left" IsReadOnly="True"/>
+            </StackPanel>
+            
+            <!--Botones-->
+            
+            <Button x:Name="AgregarButton" Height="35" Width="80" Margin="390,-510,0,0" Click="AgregarButton_Click">
+                <DockPanel>
+                    <TextBlock Margin="2, 3, 0, 0"> Agregar</TextBlock>
+                    <Image Source = "/Imagenes/add_icon.png" Height="30" Margin="5,-2,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="RemoverButton" Height="35" Width="80" Margin="390,-420,0,0" Click="RemoverButton_Click">
+                <DockPanel>
+                    <TextBlock Margin="0, 3, 0, 0">Remover</TextBlock>
+                    <Image Source = "/Imagenes/remove_icon.png" Height="30" Margin="5,-2,0,0" Width="22"/>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="NuevoButton" Height="35" Width="80" Margin="390,-330,0,0" Click="NuevoButton_Click">
+                <DockPanel Width="80">
+                    <TextBlock HorizontalAlignment="Left" Margin="2,5,0,0">Nuevo</TextBlock>
+                    <Image Source = "/Imagenes/new_icon.png" Height="30" Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="GuardarButton" Height="35" Width="80" Margin="390,-240,0,0" Click="GuardarButton_Click">
+                <DockPanel Width="80">
+                    <TextBlock HorizontalAlignment="Left" Margin="2,5,0,0">Guardar</TextBlock>
+                    <Image Source = "/Imagenes/save_icon.png" Height="25" Margin="0,0,0,0" />
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="EliminarButton" Height="35" Width="80" Margin="390,-150,0,0" Click="EliminarButton_Click">
+                <DockPanel Width="80">
+                    <TextBlock HorizontalAlignment="Left" Margin="2,5,0,0">Eliminar</TextBlock>
+                    <Image Source = "/Imagenes/delete_icon.png" Height="30" Margin="0,0,0,0"/>
+                </DockPanel>
+            </Button>
+            
+        </StackPanel>
+    </Grid>
+</Window>

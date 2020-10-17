@@ -37,7 +37,7 @@ namespace Prestamos_Tarea3
 
             try
             {
-                persona = contexto.persona.Find(personaId);
+                persona = contexto.Persona.Find(personaId);
             }
             catch (Exception)
             {
@@ -62,11 +62,11 @@ namespace Prestamos_Tarea3
 
             try
             {
-                var persona = contexto.persona.Find(personaId);
+                var persona = contexto.Persona.Find(personaId);
 
                 if (persona != null)
                 {
-                    contexto.persona.Remove(persona);
+                    contexto.Persona.Remove(persona);
                     eliminado = contexto.SaveChanges() > 0;
                 }
             }
@@ -145,7 +145,7 @@ namespace Prestamos_Tarea3
 
             try
             {
-                encontrado = contexto.prestamo.Any(e => e.PersonaId == personaId);
+                encontrado = contexto.Prestamo.Any(e => e.PersonaId == personaId);
             }
             catch (Exception)
             {
@@ -170,7 +170,7 @@ namespace Prestamos_Tarea3
             
             try
             {
-                lista = contexto.persona.Where(criterio).ToList();
+                lista = contexto.Persona.Where(criterio).ToList();
             }
             catch (Exception)
             {

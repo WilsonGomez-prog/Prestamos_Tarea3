@@ -39,6 +39,12 @@ namespace Prestamos_Tarea3.UI.Registros
                 valido = false;
                 MessageBox.Show("Error, persona no válida. El ID de la persona va vacío", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
+            if(valido)
+            {
+                this.persona.Nombres = NombreTextBox.Text;
+            }
+
             return valido;
         }
 
@@ -53,6 +59,7 @@ namespace Prestamos_Tarea3.UI.Registros
             {
                 this.persona = new Persona();
             }
+            
             this.DataContext = this.persona;
         }
 

@@ -22,4 +22,11 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Entidades\Validacion\**" />
+    <EmbeddedResource Remove="Entidades\Validacion\**" />
+    <None Remove="Entidades\Validacion\**" />
+    <Page Remove="Entidades\Validacion\**" />
+  </ItemGroup>
+
 </Project>

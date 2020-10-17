@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prestamos_Tarea3"
         mc:Ignorable="d"
-        Title="Registro Prestamos" Height="400" Width="430" ResizeMode="NoResize">
+        Title="Registro Prestamos" Height="400" Width="430" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <!-- PrestamoId -->
                 <Label Content="PrestamoID: " Height="30" Width="80" Margin="-340, 20, 0, 0"/>
-                <TextBox x:Name="PrestamoIdTextBox" Width="40" Height="25" Text="{Binding PresatmoId}" Margin=" -240, -25, 0, 0"/>
+                <TextBox x:Name="PrestamoIdTextBox" Width="40" Height="25" Text="{Binding PrestamoId}" Margin=" -240, -25, 0, 0"/>
                 <Button x:Name="BuscarButton" Height="40" Width="85" Margin="140, -45, 0, 0" Click="BuscarButton_Click">
                     <DockPanel>
                         <TextBlock Margin="3, 10, 0, 0"> Buscar </TextBlock>

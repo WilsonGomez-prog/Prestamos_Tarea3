@@ -5,44 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prestamos_Tarea3"
         mc:Ignorable="d"
-        Title="Consulta Personas" Height="800" Width="800">
+        Title="Consulta Personas" Height="400" Width="600">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10, 5, 10, 0">
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+            <Label Content="Filtro:" Width="68" HorizontalAlignment="Left"/>
+            <ComboBox x:Name="FiltroComboBox" Width="136" Margin="-300,-22,0,0">
+                <ComboBoxItem Content="PersonaID"/>
+                <ComboBoxItem Content="Nombre"/>
+            </ComboBox>
 
-            <StackPanel Orientation="Vertical" Height="58">
+            <Label Content="Criterio:" Width="68" Margin="10,-25,0,0"/>
+            <TextBox x:Name="CriterioTextBox" TextWrapping="Wrap" Width="120" Margin="200,-22,0,0"/>
+           
+            <Button x:Name="ConsultarButton" Height="30" Width="75" Margin="475,-25,0,0" Click="ConsultarButton_Click">
+                <DockPanel>
+                    <TextBlock Margin="0, 5, 0, 0"> Buscar</TextBlock>
+                    <Image Source = "/Imagenes/search_icon.png" Height="20" Margin="5,0,0,0"/>
+                </DockPanel>
+            </Button>
 
-                <StackPanel Margin="5,0">
-                    <Label Content="Filtro:"/>
-                    <ComboBox x:Name="FiltroComboBox" Width="100">
-                        <ComboBoxItem Content="PersonaID"/>
-                        <ComboBoxItem Content="Nombres"/>
-                    </ComboBox>
-                </StackPanel>
-
-                <StackPanel Margin="5,0">
-                    <Label Content="Criterio:"/>
-                    <TextBox x:Name="CriterioTextBox" Width="100"/>
-                </StackPanel>
-
-                <StackPanel>
-                    <Button x:Name="BuscarButton" Height="34" Width="93" Click="ConsultarButton_Click">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock>Buscar</TextBlock>
-                            <Image Source = "/Imagenes/search_icon.png"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-
-                <StackPanel HorizontalAlignment="Left">
-                    <DataGrid x:Name="DatosDataGrid" Height="350" Width="527">
-                        <ColumnDefinition>
-                        
-                        </ColumnDefinition>
-                    </DataGrid>
-                </StackPanel>
-
-            </StackPanel>
-            
+            <DataGrid x:Name="DatosDataGrid" Height="329" Width="582" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID de la Persona" Binding="{Binding PersonaId}"/>
+                    <DataGridTextColumn Header="Nombre de la Persona" Binding="{Binding Nombres}"/>
+                    <DataGridTextColumn Header="Balance de la Persona" Binding="{Binding Balance}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </Window>

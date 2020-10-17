@@ -16,6 +16,45 @@ namespace Prestamos_Tarea3.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.8");
 
+            modelBuilder.Entity("Prestamos_Tarea3.Entidades.Moras", b =>
+                {
+                    b.Property<int>("MoraId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("MoraId");
+
+                    b.ToTable("Moras");
+                });
+
+            modelBuilder.Entity("Prestamos_Tarea3.Entidades.MorasDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MoraId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PrestamoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("Valor")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MoraId");
+
+                    b.ToTable("MorasDetalle");
+                });
+
             modelBuilder.Entity("Prestamos_Tarea3.Entidades.Persona", b =>
                 {
                     b.Property<int>("PersonaId")
@@ -30,7 +69,7 @@ namespace Prestamos_Tarea3.Migrations
 
                     b.HasKey("PersonaId");
 
-                    b.ToTable("persona");
+                    b.ToTable("Persona");
                 });
 
             modelBuilder.Entity("Prestamos_Tarea3.Entidades.Prestamo", b =>
@@ -56,7 +95,16 @@ namespace Prestamos_Tarea3.Migrations
 
                     b.HasKey("PrestamoId");
 
-                    b.ToTable("prestamo");
+                    b.ToTable("Prestamo");
+                });
+
+            modelBuilder.Entity("Prestamos_Tarea3.Entidades.MorasDetalle", b =>
+                {
+                    b.HasOne("Prestamos_Tarea3.Entidades.Moras", null)
+                        .WithMany("DetalleMora")
+                        .HasForeignKey("MoraId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

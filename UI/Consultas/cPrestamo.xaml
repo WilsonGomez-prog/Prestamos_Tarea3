@@ -5,54 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prestamos_Tarea3"
         mc:Ignorable="d"
-        Title="Consulta Prestamos" Height="450" Width="550">
+        Title="Consulta Prestamos" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10, 5, 10, 0">
 
-            <StackPanel Orientation="Vertical" Height="58">
-                
+            <StackPanel Orientation="Vertical" Height="426" Width="780" HorizontalAlignment="Left">
+
                 <StackPanel>
                     <Label Content="Desde:"/>
-                    <DatePicker x:Name="DesdeDataPicker" />
+                    <DatePicker x:Name="DesdeDataPicker" Width="165" HorizontalAlignment="Left"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Margin="5,0">
-                    <Label Content="Hasta:"/>
-                    <DatePicker x:Name="HastaDataPicker" />
+                    <Label Content="Hasta:" Margin="170,-50,0,0"/>
+                    <DatePicker x:Name="HastaDataPicker" Margin="-250,-25,0,0" Width="177" />
                 </StackPanel>
 
-                <StackPanel Margin="5,0">
+                <StackPanel  Margin="200,-50,0,0" Width="257">
                     <Label Content="Filtro:"/>
-                    <ComboBox x:Name="FiltroComboBox" Width="100">
+                    <ComboBox x:Name="FiltroComboBox" Width="100" Margin="-150,0,0,0">
                         <ComboBoxItem Content="PrestamoID"/>
                         <ComboBoxItem Content="PersonaID"/>
                     </ComboBox>
                 </StackPanel>
 
-                <StackPanel Margin="5,0">
-                    <Label Content="Criterio:"/>
-                    <TextBox x:Name="CriterioTextBox" Width="100"/>
+                <StackPanel Margin="400,-50,0,0">
+                    <Label Content="Criterio:" Margin="75,0,0,0"/>
+                    <TextBox x:Name="CriterioTextBox" Width="100" Margin="-120,0,0,0"/>
                 </StackPanel>
 
                 <StackPanel>
-                    <Button x:Name="BuscarButton" Height="34" Width="93" Click="ConsultarButton_Click">
+                    <Button x:Name="BuscarButton" Height="34" Width="70" Margin="500,-35,0,0" Click="ConsultarButton_Click">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock>Buscar</TextBlock>
-                            <Image Source = "/Imagenes/search_icon.png"/>
+                            <TextBlock Margin="0,0,0,0">Buscar</TextBlock>
+                            <Image Source="/Imagenes/search_icon.png" Margin="5,0,0,0" Width="20"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
 
-                <StackPanel HorizontalAlignment="Left">
-                    <DataGrid x:Name="DatosDataGrid" Height="350" Width="527">
-                        <ColumnDefinition>
-                        
-                        </ColumnDefinition>
-                    </DataGrid>
-                </StackPanel>
+                <DataGrid Height="356" Margin="0,10,0,0" x:Name="DatosDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID del prestamo" Binding="{Binding PrestamoId}"/>
+                        <DataGridTextColumn Header="ID de la persona" Binding="{Binding PersonaId}"/>
+                        <DataGridTextColumn Header="Fecha del prestamo" Binding="{Binding FechaPrestamo}"/>
+                        <DataGridTextColumn Header="Concepto del prestamo" Binding="{Binding Concepto}"/>
+                        <DataGridTextColumn Header="Monto del prestamo" Binding="{Binding Monto}"/>
+                        <DataGridTextColumn Header="Balance del prestamo" Binding="{Binding Balance}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
 
             </StackPanel>
             
+
         </StackPanel>
     </Grid>
 </Window>
