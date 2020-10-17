@@ -11,7 +11,13 @@
         <StackPanel>
             <!--MoraId-->
             <Label Content="ID:" FontSize="15" Height="30" Width="30" Margin="20,0,0,0" HorizontalAlignment="Left"/>
-            <TextBox x:Name="MoraIdTextBox" Text="{Binding MoraId}" Height="25" Width="50" Margin="80,-25,0,0" HorizontalAlignment="Left"/>
+            <TextBox x:Name="MoraIdTextBox" Height="25" Width="50" Margin="80,-25,0,0" HorizontalAlignment="Left">
+                <Binding Path="MoraId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <m:ValidacionMonto x:Name="validacionmoraid" ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
             <Button x:Name="BuscarButton" Height="25" Width="70" Margin="170, -25, 0, 0" HorizontalAlignment="Left" Click="BuscarButton_Click">
                 <DockPanel>
                     <TextBlock Margin="-5, 0, 0, 0"> Buscar</TextBlock>

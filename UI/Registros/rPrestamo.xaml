@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prestamos_Tarea3"
+        xmlns:m="clr-namespace:Prestamos_Tarea3.Validacion"
         mc:Ignorable="d"
         Title="Registro Prestamos" Height="400" Width="430" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -20,19 +21,45 @@
 
             <!-- Fecha -->
             <Label Content="Fecha:"/>
-            <DatePicker x:Name="FechaPrestamoDP" Width="160" Height="25" Text="{Binding FechaPrestamo}" Margin=" -120, -25, 0, 0"/>
+            <DatePicker x:Name="FechaPrestamoDP" Width="160" Height="25" Margin=" -120, -25, 0, 0">
+            <DatePicker.SelectedDate>
+                    <Binding Path="FechaPrestamo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <m:ValidacionFecha x:Name="validacionfecha" ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </DatePicker.SelectedDate>
+            </DatePicker>
 
             <!-- PersonaId -->
             <Label Content="PersonaID:"/>
-            <TextBox x:Name="PersonaIdTextBox" Width="40" Height="25" Text="{Binding PersonaId}" Margin=" -240, -25, 0, 0"/>
+            <TextBox x:Name="PersonaIdTextBox" Width="40" Height="25" Margin=" -240, -25, 0, 0">
+                <Binding Path="PersonaId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <m:ValidacionMonto x:Name="validacionid" ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
 
             <!-- Concepto -->
             <Label Content="Concepto:" />
-            <TextBox x:Name="ConceptoTextBox" Width="200" Height="100" Text="{Binding Concepto}" TextWrapping="Wrap" Margin=" -80, -25, 0, 0"/>
+            <TextBox x:Name="ConceptoTextBox" Width="200" Height="100" TextWrapping="Wrap" Margin=" -80, -25, 0, 0">
+                <Binding Path="Concepto" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <m:ValidacionCadena x:Name="validacionconepto" ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
 
             <!-- Monto -->
             <Label Content="Monto:" />
-            <TextBox x:Name="MontoTextBox" Width="70" Height="25" Text="{Binding Monto}" Margin=" -210, -25, 0, 0"/>
+            <TextBox x:Name="MontoTextBox" Width="70" Height="25" Margin=" -210, -25, 0, 0">
+                <Binding Path="Monto" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <m:ValidacionMonto x:Name="validacionmonto" ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
 
             <!-- Balance -->
             <Label Content="Balance:" />

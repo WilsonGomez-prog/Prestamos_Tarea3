@@ -4,13 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prestamos_Tarea3"
+        xmlns:m="clr-namespace:Prestamos_Tarea3.Validacion"
         mc:Ignorable="d"
         Title="Registro Personas" Height="275" Width="475" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel>
             <!--PersonaId-->
             <Label Content="ID:" FontSize="15" Height="30" Width="30" Margin="-375, 20, 0, 0"/>
-            <TextBox x:Name="PersonaIdTextBox" Text="{Binding PersonaId}" Height="25" Width="160" Margin="-50, -25, 0, 0"/>
+            <TextBox x:Name="PersonaIdTextBox" Height="25" Width="160" Margin="-50, -25, 0, 0">
+                <Binding Path="PersonaId" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <m:ValidacionMonto x:Name="validacionid" ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
             <Button x:Name="BuscarButton" Height="30" Width="75" Margin="210, -25, 0, 0" Click="BuscarButton_Click">
                 <DockPanel>
                     <TextBlock Margin="-5, 0, 0, 0"> Buscar </TextBlock>
@@ -20,7 +27,13 @@
 
             <!--Nombres-->
             <Label Content="Nombre:" FontSize="15" Height="30" Width="70" Margin="-340, 10, 0, 0"/>
-            <TextBox x:Name="NombreTextBox" Text="{Binding Nombre}" Height="25" Width="160" Margin="-50, -25, 0, 0"/>
+            <TextBox x:Name="NombreTextBox" Height="25" Width="160" Margin="-50, -25, 0, 0">
+                <Binding Path="Nombre" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding.ValidationRules>
+                        <m:ValidacionCadena x:Name="validacionnombre" ValidatesOnTargetUpdated="True"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox>
 
             <!--Balance-->
             <Label Content="Balance:" FontSize="15" Height="30" Width="70" Margin="-340, 15, 0, 0"/>
