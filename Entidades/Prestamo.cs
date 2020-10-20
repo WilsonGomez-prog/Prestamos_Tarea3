@@ -12,6 +12,7 @@ namespace Prestamos_Tarea3.Entidades
         public string Concepto { get; set; }
         public double Monto { get; set; }
         public double Balance { get; set; }
+        public double Mora { get; set; }
 
         public Prestamo()
         {
@@ -21,6 +22,7 @@ namespace Prestamos_Tarea3.Entidades
             Concepto = "";
             Monto = 0.0;
             Balance = 0.0;
+            Mora = 0.0;
         }
     }
 }

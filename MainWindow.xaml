@@ -10,14 +10,14 @@
         <StackPanel>
             <Menu>
                 <MenuItem Header="Registro">
-                    <MenuItem x:Name="rPrestamoMenuItem" Header="Registro prestamos." Click="rPrestamoMenuItem_Click"/>
-                    <MenuItem x:Name="rPersonaMenuItem" Header="Registro personas." Click="rPersonaMenuItem_Click"/>
-                    <MenuItem x:Name="rMoraMenuItem" Header="Registro Moras." Click="rMoraMenuItem_Click"/>
+                    <MenuItem x:Name="rPrestamoMenuItem" Header="Registro prestamos" Click="rPrestamoMenuItem_Click"/>
+                    <MenuItem x:Name="rPersonaMenuItem" Header="Registro personas" Click="rPersonaMenuItem_Click"/>
+                    <MenuItem x:Name="rMoraMenuItem" Header="Registro Moras" Click="rMoraMenuItem_Click"/>
                 </MenuItem>
 
                 <MenuItem Header="Consultas">
-                    <MenuItem x:Name="cPrestamoMenuItem" Header="Consulta prestamos." Click="cPrestamoMenuItem_Click"/>
-                    <MenuItem x:Name="cPersonaMenuItem" Header="Consulta personas." Click="cPersonaMenuItem_Click"/>
+                    <MenuItem x:Name="cPrestamoMenuItem" Header="Consulta prestamos" Click="cPrestamoMenuItem_Click"/>
+                    <MenuItem x:Name="cPersonaMenuItem" Header="Consulta personas" Click="cPersonaMenuItem_Click"/>
                 </MenuItem>
 
                 <MenuItem Header="Ayuda">

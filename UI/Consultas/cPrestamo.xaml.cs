@@ -17,6 +17,10 @@ namespace Prestamos_Tarea3.UI.Consultas
             var listado = new List<Prestamo>();
             if (string.IsNullOrWhiteSpace(CriterioTextBox.Text))
             {
+                listado = PrestamoBLL.GetList();
+            }
+            else
+            {
                 switch(FiltroComboBox.SelectedIndex)
                 {
                     case 0:
@@ -26,10 +30,6 @@ namespace Prestamos_Tarea3.UI.Consultas
                         listado = PrestamoBLL.GetList(e => e.PersonaId == Convert.ToInt32(CriterioTextBox.Text));
                         break;
                 }
-            }
-            else
-            {
-                listado = PrestamoBLL.GetList(e => true);
             }
 
             listado = PrestamoBLL.GetList(c => c.FechaPrestamo.Date >= DesdeDataPicker.SelectedDate && c.FechaPrestamo <= HastaDataPicker.SelectedDate);

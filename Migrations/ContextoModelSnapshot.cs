@@ -90,6 +90,9 @@ namespace Prestamos_Tarea3.Migrations
                     b.Property<double>("Monto")
                         .HasColumnType("REAL");
 
+                    b.Property<double>("Mora")
+                        .HasColumnType("REAL");
+
                     b.Property<int>("PersonaId")
                         .HasColumnType("INTEGER");
 

@@ -22,6 +22,14 @@ namespace Prestamos_Tarea3.BLL
                 {
                     guardado = contexto.SaveChanges() > 0;
                 }
+
+                List<MorasDetalle> DetallesModif = mora.DetalleMora;
+                foreach (MorasDetalle mr in DetallesModif)
+                {
+                    Prestamo prestamo = PrestamoBLL.Buscar(mr.PrestamoId);
+                    prestamo.Mora += mr.Valor;
+                    PrestamoBLL.Guardar(prestamo);
+                }
             }
             catch (System.Exception)
             {
@@ -43,10 +51,28 @@ namespace Prestamos_Tarea3.BLL
             try
             {
                 contexto.Database.ExecuteSqlRaw($"Delete from MorasDetalle where MoraId = {mora.MoraId}");
+
                 foreach(var anterior in mora.DetalleMora)
                 {
                     contexto.Entry(anterior).State = EntityState.Added;
                 }
+
+                List<MorasDetalle> Detalles = Buscar(mora.MoraId).DetalleMora;
+                foreach(MorasDetalle mr in Detalles)
+                {
+                    Prestamo prestamo = PrestamoBLL.Buscar(mr.PrestamoId);
+                    prestamo.Mora -= mr.Valor;
+                    PrestamoBLL.Guardar(prestamo);
+                }
+
+                List<MorasDetalle> DetallesModif = mora.DetalleMora;
+                foreach (MorasDetalle mr in DetallesModif)
+                {
+                    Prestamo prestamo = PrestamoBLL.Buscar(mr.PrestamoId);
+                    prestamo.Mora += mr.Valor;
+                    PrestamoBLL.Guardar(prestamo);
+                }
+
                 contexto.Entry(mora).State = EntityState.Modified;
                 modificado = contexto.SaveChanges() > 0;
             }

@@ -95,7 +95,7 @@ namespace Prestamos_Tarea3
             try
             {
                 contexto.Add(prestamo);
-                var cliente = contexto.Persona.Find(prestamo.PersonaId).Balance += prestamo.Monto;
+                var cliente = contexto.Persona.Find(prestamo.PersonaId).Balance += prestamo.Monto + prestamo.Mora;
                 insertado = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -122,7 +122,9 @@ namespace Prestamos_Tarea3
             try
             {
                 contexto.Entry(prestamo).State = EntityState.Modified;
-                var cliente = contexto.Persona.Find(prestamo.PersonaId).Balance += prestamo.Monto;
+                var cliente = contexto.Persona.Find(prestamo.PersonaId);
+                cliente.Balance = 0;
+                cliente.Balance += prestamo.Monto + prestamo.Mora;
                 modificado = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -210,5 +212,7 @@ namespace Prestamos_Tarea3
 
             return lista;
         }
+
+        
     }
 }

@@ -37,15 +37,18 @@ namespace Prestamos_Tarea3.UI.Registros
                 validado = false;
                 MessageBox.Show("El préstamo no puede ser validado. El monto del préstamo es 0 o esta vacío.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else if(Convert.ToInt32(PrestamoIdTextBox.Text) > 0 || Convert.ToInt32(PrestamoIdTextBox.Text) < 0 )
-            {
-                validado = false;
-                MessageBox.Show("Error, persona no válida. El ID del prestamo va vacío.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
             else if(ConceptoTextBox.Text.Length == 0)
             {   
                 validado = false;
                 MessageBox.Show("El préstamo no puede ser validado. El concepto del préstamo esta vacío.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if(validado)
+            {
+                prestamo.PersonaId = Convert.ToInt32(PersonaIdTextBox.Text);
+                prestamo.Concepto = ConceptoTextBox.Text;
+                prestamo.Monto = Convert.ToInt32(MontoTextBox.Text);
+                prestamo.Balance = prestamo.Monto;
             }
 
             return validado;
@@ -67,6 +70,7 @@ namespace Prestamos_Tarea3.UI.Registros
             else
             {
                 this.prestamo = new Prestamo();
+                MessageBox.Show("El prestamo referido con el id ingresado no existe en la base de datos.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
              
             this.DataContext = prestamo;
@@ -92,15 +96,23 @@ namespace Prestamos_Tarea3.UI.Registros
 
         public void EliminarButton_Click(object sender, RoutedEventArgs e)
         {
-            if(PrestamoBLL.Eliminar(Convert.ToInt32(PrestamoIdTextBox.Text)))
+            if (string.IsNullOrWhiteSpace(PrestamoIdTextBox.Text) || PrestamoBLL.Buscar(Convert.ToInt32(PrestamoIdTextBox.Text)) == null)
             {
-                Limpiar();
-                MessageBox.Show("El prestamo fue eliminado exitosamente.", "Exito", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("El prestamo no pudo ser eliminado, porque no existe o el id ingresado esta vacío.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
-                MessageBox.Show("El prestamo no pudo ser eliminado.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                if(PrestamoBLL.Eliminar(Convert.ToInt32(PrestamoIdTextBox.Text)))
+                {
+                    Limpiar();
+                    MessageBox.Show("El prestamo fue eliminado exitosamente.", "Exito", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+                else
+                {
+                    MessageBox.Show("El prestamo no pudo ser eliminado.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
+            
         }
     }
 }

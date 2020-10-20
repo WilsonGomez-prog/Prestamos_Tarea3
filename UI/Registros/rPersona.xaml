@@ -27,7 +27,7 @@
 
             <!--Nombres-->
             <Label Content="Nombre:" FontSize="15" Height="30" Width="70" Margin="-340, 10, 0, 0"/>
-            <TextBox x:Name="NombreTextBox" Height="25" Width="160" Margin="-50, -25, 0, 0">
+            <TextBox x:Name="NombreTextBox" Text="{Binding Nombres}" Height="25" Width="160" Margin="-50, -25, 0, 0">
                 <Binding Path="Nombre" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                     <Binding.ValidationRules>
                         <m:ValidacionCadena x:Name="validacionnombre" ValidatesOnTargetUpdated="True"/>

@@ -17,6 +17,10 @@ namespace Prestamos_Tarea3.UI.Consultas
             var listado = new List<Persona>();
             if (string.IsNullOrWhiteSpace(CriterioTextBox.Text))
             {
+                listado = PersonaBLL.GetList();
+            }
+            else
+            {
                 switch(FiltroComboBox.SelectedIndex)
                 {
                     case 1:
@@ -27,6 +31,7 @@ namespace Prestamos_Tarea3.UI.Consultas
                         break;
                 }
             }
+            
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
             

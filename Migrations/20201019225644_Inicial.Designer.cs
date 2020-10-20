@@ -9,7 +9,7 @@ using Prestamos_Tarea3.DAL;
 namespace Prestamos_Tarea3.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20201017212152_Inicial")]
+    [Migration("20201019225644_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,6 +90,9 @@ namespace Prestamos_Tarea3.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<double>("Monto")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("Mora")
                         .HasColumnType("REAL");
 
                     b.Property<int>("PersonaId")

@@ -95,10 +95,21 @@ namespace Prestamos_Tarea3.UI.Registros
 
         private void AgregarButton_Click(object sender, RoutedEventArgs e)
         {
-            this.mora.DetalleMora.Add(new MorasDetalle(mora.MoraId, Convert.ToInt32(PrestamoComboBox.SelectedValue.ToString()), Convert.ToDouble(ValorTextBox.Text)));
-            mora.Total = Convert.ToDouble(ValorTextBox.Text);
+            if(MorasBLL.Buscar(mora.MoraId) != null)
+           {
+                this.mora.DetalleMora.Add(new MorasDetalle(mora.MoraId, Convert.ToInt32(PrestamoComboBox.SelectedValue.ToString()), Convert.ToDouble(ValorTextBox.Text)));
+                mora.Total = 0;
+                foreach(MorasDetalle det in mora.DetalleMora)
+                {
+                    mora.Total += det.Valor;
+                }
 
-            Actualizar();
+                Actualizar();
+           }
+           else
+           {
+               MessageBox.Show("Este detalle no ha podido ser agregado,\n guarde la mora y proceda a agregar su detalle.", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+           }
         }
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
